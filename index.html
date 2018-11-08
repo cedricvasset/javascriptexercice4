@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<html lang="fr" dir="ltr">
+<head>
+  <title>Exercice_4</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+<body>
+
+  <form>
+    <label for="lastname">Nom : </label><input type="text" name="lastname" id="lastname" />
+    <label for="firstname">Prénom : </label><input type="text" name="firstname" id="firstname" />
+    <label for="city">Ville : </label><input type="text" name="city" id="city" />
+    <button onclick="resultat()" name="submit" id="submit">Valider</button> <!--ajout d une fonction au clic sur le bouton en utilisant onclick+nomde la fonction-->
+  </form>
+  <script type="text/javascript">
+  //création de la fonction appelée par  onclick
+  function resultat(){
+    //ajout des variables
+    var lastname = document.getElementById('lastname').value;
+    //document.getElementById('ID de la donnée a utiliser') permet de cibler les donner récupérer.ne pas oublier d'ajouter .value pour transformer le tout en donnée simple.
+    var firstname = document.getElementById('firstname').value;
+    var city = document.getElementById('city').value;
+    //ajout de verification de l absence de characteres numériques
+    var regex = /^[a-zA-Z-]+$/;//variable vérifiant l absence de caractères numériques,1.2.3 etc...et vérifiant la présence de lettres majuscules et minuscules ^ et $ veulent dire strictement au début et strictement a la fin du mot.
+    //utilisation de conditions pour la validation du formulaire
+    if((regex.test(lastname) == true) && (regex.test(firstname) == true) && (regex.test(city) == true))
+    //SI la variable regex appelant l input lastname et SI la variable regex appelant l input first name et si la variable regex appelent l input city sont TRUE(Vrai) alors on lance la boite de dialogue alert
+    {
+      alert('Nom : ' + lastname + '\nPrénom : ' + firstname + '\nVille : ' + city);
+    }else
+    //si le resultat est faux on lance la boite de dialogue alert
+    {
+      alert('Touche pas à sa p\'tit con');
+    }
+  }
+
+</script>
+</body>
+</html>
